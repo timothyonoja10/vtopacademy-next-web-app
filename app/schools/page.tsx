@@ -11,7 +11,6 @@ export default async function Page() {
   if (cookieStore.has('isAdmin')){
     isAdmin = true;
   }
-  const schoolId: number = 0;
 
   return (
     <main className="p-8">
