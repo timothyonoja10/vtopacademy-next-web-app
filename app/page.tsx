@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import { cookies } from 'next/headers'
+import { hasAccesstoken } from './authStore';
 
 export default function Home() {
- 
-  const cookieStore = cookies();
-  const isLoggedIn = cookieStore.has('accessToken');
+  const isLoggedIn = hasAccesstoken();
   const isLoggedOut = !isLoggedIn;
 
   return (

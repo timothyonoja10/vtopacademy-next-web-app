@@ -1,13 +1,14 @@
-import { cookies } from "next/headers";
+import { getAccssToken } from "@/app/authStore";
 
 export default async function getSchool(schoolId: number): Promise<School> {
   
   const url = `http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools/${schoolId}`;
-  const accessToken = cookies().get('accessToken');
+  const accessToken = getAccssToken();
 
   try {
     const res = await fetch(url, {
       headers: {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
       },
     });

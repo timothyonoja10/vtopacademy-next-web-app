@@ -1,6 +1,6 @@
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import makeLogin from "./loginApi";
+import { saveAuthInfo } from "../authStore";
 
 // Server Action
 export default async function processLoginForm(formData: FormData) {
@@ -19,14 +19,9 @@ export default async function processLoginForm(formData: FormData) {
   }
   
   const data = await makeLogin(username, password);
-  const cookieStore = cookies();
-  cookieStore.set('accessToken', data.accessToken);
-  if (data.isAdmin === true) {
-    cookieStore.set('isAdmin', 'true');
-  }
-  if (data.isUser === true) {
-    cookieStore.set('isUser', 'true');
-  }
-  redirect('/');
-    
+  let isAdmin = data.isAdmin === true;
+  let isUser = data.isUser === true;
+  saveAuthInfo(data.accessToken, isAdmin,isUser);
+
+  redirect('/');  
 }

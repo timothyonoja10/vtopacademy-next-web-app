@@ -1,10 +1,10 @@
-import { cookies } from "next/headers";
+import { getAccssToken } from "@/app/authStore";
 
 export default async function updateSchool(schoolId: number, name: string, number: number) {
 
   let url = `http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools/${schoolId}`;
 
-  const accessToken = cookies().get('accessToken')?.value;
+  const accessToken = getAccssToken()
   if (!accessToken) {
     console.log(accessToken);
     throw new Error('Access token is missing');

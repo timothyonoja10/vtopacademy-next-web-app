@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation'
+import { deleteAuthInfo } from '../authStore';
 
 export default async function Page() {
 
@@ -9,12 +9,8 @@ export default async function Page() {
   async function processLogoutConfirmation() {
     'use server'
 
-    const cookieStore = cookies();
-    cookieStore.delete('accessToken');
-    cookieStore.delete('isAdmin');
-    cookieStore.delete('isUser');
-    redirect('/'); 
-    
+    deleteAuthInfo();
+    redirect('/');  
   }
 
   return (

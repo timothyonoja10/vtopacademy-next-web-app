@@ -1,22 +1,19 @@
 
-import Link from 'next/link'
-import { cookies } from 'next/headers'
+import Link from 'next/link';
 import getSchools from './getSchoolsApi';
+import { isAdminstrator } from '../authStore';
 
 export default async function Page() {
   const data = await getSchools();
-
-  let isAdmin: boolean = false;
-  const cookieStore = cookies();
-  if (cookieStore.has('isAdmin')){
-    isAdmin = true;
-  }
+  let isAdmin: boolean = isAdminstrator();
 
   return (
     <main className="p-8">
-      <Link href={"/school-add"} className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
-        Add New School
-      </Link>
+      {isAdmin && (
+        <Link href={"/school-add"} className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          Add New School
+        </Link>
+      )}
       <ul className="space-y-8">
         {data.map((school: { schoolId: number, name: string, number: number}) => (
           <li key={school.schoolId} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md">

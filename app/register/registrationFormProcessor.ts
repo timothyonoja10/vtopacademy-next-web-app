@@ -1,6 +1,7 @@
-import { cookies } from "next/headers";
+
 import { redirect } from "next/navigation";
 import makeRegistration from "./registerApi";
+import { saveAuthInfo } from "../authStore";
 
 export default async function processRegistrationForm(formData: FormData) {
   'use server'
@@ -18,14 +19,9 @@ export default async function processRegistrationForm(formData: FormData) {
   }
   
   const data = await makeRegistration(username, password);
-  const cookieStore = cookies();
-  cookieStore.set('accessToken', data.accessToken);
-  if (data.isAdmin === true) {
-    cookieStore.set('isAdmin', 'true');
-  }
-  if (data.isUser === true) {
-    cookieStore.set('isUser', 'true');
-  }
+  let isAdmin = data.isAdmin === true;
+  let isUser = data.isUser === true;
+  saveAuthInfo(data.accessToken, isAdmin,isUser);
   
   redirect('/');
 }

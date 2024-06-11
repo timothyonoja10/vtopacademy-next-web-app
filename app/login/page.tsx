@@ -1,7 +1,5 @@
-
 import processLoginForm from './loginFormProcessor'
 
-// Server Component
 export default function Page() {
  
   return (
