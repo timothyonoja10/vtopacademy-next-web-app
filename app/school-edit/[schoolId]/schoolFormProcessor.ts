@@ -1,7 +1,6 @@
 
-import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
-import saveSchool from '../../school-add/saveSchoolApi';
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 import updateSchool from './updateSchoolApi';
 
 // Server Action

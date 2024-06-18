@@ -16,23 +16,31 @@ export default function Home() {
         <h1 className="text-3xl font-bold mb-4">
           Learn any subject using comprehensive videos and practice questions.
         </h1>
-        <Link href="/schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-          Start now
-        </Link>
-        {isLoggedOut && (
-          <Link href="/register" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-            Register
-          </Link>
-        )}
-        {isLoggedOut && (
-          <Link href="/login" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-            Login
-          </Link>
+        {isLoggedOut && ( 
+          <div className="space-x-4">
+            <Link href="/schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+              Start now
+            </Link>
+            <Link href="/register" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+              Register
+            </Link>
+            <Link href="/login" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+              Login
+            </Link>
+            <Link href="/forgot-password" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+              Forgot password
+            </Link>
+          </div>  
         )}
         {isLoggedIn && (
-          <Link href="/logout" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-            Logout
-          </Link>
+          <div> 
+            <Link href="/schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+              Start now
+            </Link>
+            <Link href="/logout" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+              Logout
+            </Link>
+          </div>   
         )}
       </div>
     </main>  
