@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { getAccssToken } from "../authStore";
+import { getAccssToken } from "../../authStore";
 
 export default async function saveSchool(name: string, number: number) {
 

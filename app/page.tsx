@@ -18,26 +18,26 @@ export default function Home() {
         </h1>
         {isLoggedOut && ( 
           <div className="space-x-4">
-            <Link href="/schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            <Link href="/schools/all-schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Start now
             </Link>
-            <Link href="/register" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            <Link href="/auth/register" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Register
             </Link>
-            <Link href="/login" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            <Link href="/auth/login" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Login
             </Link>
-            <Link href="/forgot-password" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            <Link href="/auth/forgot-password" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Forgot password
             </Link>
           </div>  
         )}
         {isLoggedIn && (
           <div> 
-            <Link href="/schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            <Link href="/schools/all-schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Start now
             </Link>
-            <Link href="/logout" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            <Link href="/auth/logout" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Logout
             </Link>
           </div>   

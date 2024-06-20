@@ -31,6 +31,6 @@ export default async function processSchoolForm(formData: FormData) {
 
   let data = await updateSchool(schoolId, name, number);
   
-  revalidatePath('/schools');
-  redirect('/schools');  
+  revalidatePath('/schools/all-schools');
+  redirect('/schools/all-schools');  
 }

@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { redirect } from 'next/navigation'
-import { deleteAuthInfo } from '../authStore';
+import { deleteAuthInfo } from '../../authStore';
 
 export default async function Page() {
 

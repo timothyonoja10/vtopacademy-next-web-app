@@ -14,6 +14,6 @@ export default async function processDeleteConfirmation(formData: FormData) {
   }
 
   const data = await deleteSchool(schoolId);
-  revalidatePath('/schools');
-  redirect('/schools'); 
+  revalidatePath('/schools/all-schools');
+  redirect('/schools/all-schools');  
 }

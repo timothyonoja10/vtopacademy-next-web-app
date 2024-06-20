@@ -1,11 +1,11 @@
-import { redirect } from "next/navigation";
-import makeLogin from "./loginApi";
-import { saveAuthInfo } from "../authStore";
 
-// Server Action
-export default async function processLoginForm(formData: FormData) {
+import { redirect } from "next/navigation";
+import makeRegistration from "./registerApi";
+import { saveAuthInfo } from "../../authStore";
+
+export default async function processRegistrationForm(formData: FormData) {
   'use server'
-   
+
   let username: string = '';
   let password: string = '';
 
@@ -18,10 +18,10 @@ export default async function processLoginForm(formData: FormData) {
     password = passwordData.toString();
   }
   
-  const data = await makeLogin(username, password);
+  const data = await makeRegistration(username, password);
   let isAdmin = data.isAdmin === true;
   let isUser = data.isUser === true;
   saveAuthInfo(data.accessToken, isAdmin,isUser);
-
-  redirect('/');  
+  
+  redirect('/');
 }

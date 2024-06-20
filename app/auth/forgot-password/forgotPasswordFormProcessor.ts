@@ -15,5 +15,5 @@ export default async function processForgotPasswordForm(formData: FormData) {
   
   const data = await generateForgotPasswordCode(username);
 
-  redirect(`/change-password/${username}`);  
+  redirect(`/auth/change-password/${username}`);  
 }

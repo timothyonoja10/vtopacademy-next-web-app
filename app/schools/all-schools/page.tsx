@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import getSchools from './getSchoolsApi';
-import { isAdminstrator } from '../authStore';
+import { isAdminstrator } from '../../authStore';
 
 export default async function Page() {
   const data = await getSchools();
@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <main className="p-8">
       {isAdmin && (
-        <Link href={"/school-add"} className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+        <Link href={"/schools/school-add"} className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
           Add New School
         </Link>
       )}
@@ -23,10 +23,10 @@ export default async function Page() {
             {isAdmin && (
               <div className="flex space-x-2">
                 <span>{school.number}</span>
-                <Link href={`/school-edit/${school.schoolId}`} className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                <Link href={`/schools/school-edit/${school.schoolId}`} className="bg-yellow-500 text-white px-2 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
                   Edit
                 </Link>
-                <Link href={`/school-delete/${school.schoolId}`} className="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+                <Link href={`/schools/school-delete/${school.schoolId}`} className="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
                   Delete
                 </Link>
               </div>
