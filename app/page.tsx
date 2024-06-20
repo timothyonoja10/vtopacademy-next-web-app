@@ -33,7 +33,7 @@ export default function Home() {
           </div>  
         )}
         {isLoggedIn && (
-          <div> 
+          <div className="space-x-4"> 
             <Link href="/schools/all-schools" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Start now
             </Link>
