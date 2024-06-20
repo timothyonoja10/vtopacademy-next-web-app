@@ -1,5 +1,5 @@
 
-import getSchool from '@/app/schools/school-edit/[schoolId]/getSchoolApi';
+import getSchool from '@/app/schools/edit-school/[schoolId]/getSchoolApi';
 import processSchoolForm from './schoolFormProcessor';
 
 // Server Component
