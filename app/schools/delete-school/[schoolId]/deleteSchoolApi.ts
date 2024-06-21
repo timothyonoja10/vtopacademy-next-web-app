@@ -1,11 +1,12 @@
 import { getAccssToken } from '@/app/authStore';
+import { API_BASE_URL } from '@/constants/BaseUrl';
 
 export default async function deleteSchool(schoolId: number) {
   if (!schoolId) {
     throw new Error('Invalid schoolId');
   } 
 
-  const url = `http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools/${schoolId}`;
+  const url = `${API_BASE_URL}schools/${schoolId}`;
   const accessToken = getAccssToken();
   
   if (!accessToken) {

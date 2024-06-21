@@ -1,7 +1,9 @@
+import { API_BASE_URL } from "@/constants/BaseUrl";
 
 export default async function getSchools() {
+  let url = API_BASE_URL + 'schools';
   
-  const res = await fetch('http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools'); 
+  const res = await fetch(url); 
   if (!res.ok) {
     throw new Error('Failed to fetch schools');
   } 
