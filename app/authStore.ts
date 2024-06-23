@@ -21,13 +21,15 @@ export function getAccssToken() {
 export function saveAuthInfo(
   accessToken: string, isAdmin: boolean, isUser: boolean
 ): boolean {
+  const oneDay = 24 * 60 * 60 * 1000;
+  const expiresIn = Date.now() + oneDay;
   const cookieStore = cookies();
-  cookieStore.set('accessToken', accessToken);
+  cookieStore.set('accessToken', accessToken, { expires: expiresIn });
   if (isAdmin === true) {
-    cookieStore.set('isAdmin', 'true');
+    cookieStore.set('isAdmin', 'true', { expires: expiresIn });
   }
   if (isUser === true) {
-    cookieStore.set('isUser', 'true');
+    cookieStore.set('isUser', 'true', { expires: expiresIn });
   }
   return true;
 }
