@@ -1,2 +1,4 @@
 npx create-next-app@latest
+npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
+npm init jest@latest
 npm run dev
