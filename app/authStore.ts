@@ -22,7 +22,7 @@ export function saveAuthInfo(
   accessToken: string, isAdmin: boolean, isUser: boolean
 ): boolean {
   const oneDay = 24 * 60 * 60 * 1000;
-  const expiresIn = Date.now() + oneDay;
+  const expiresIn = new Date(Date.now() + oneDay);
   const cookieStore = cookies();
   cookieStore.set('accessToken', accessToken, { expires: expiresIn });
   if (isAdmin === true) {
