@@ -23,7 +23,11 @@ export default async function processAddSchoolForm(formData: FormData) {
     throw new Error('Enter valid number for school and try again');
   }
 
-  let data = await saveSchool(name, number);
+  const saved = await saveSchool(name, number);
+
+  if(!saved) {
+    return;
+  }
   
   revalidatePath('/schools/all-schools');
   redirect('/schools/all-schools');  

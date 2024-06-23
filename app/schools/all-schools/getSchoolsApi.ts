@@ -9,5 +9,4 @@ export default async function getSchools() {
   } 
   const data = await res.json();
   return data;
-
 }
