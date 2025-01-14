@@ -1,8 +1,9 @@
 import { getAccssToken } from "@/app/authStore";
+import { API_BASE_URL } from "@/constants/BaseUrl";
 
 export default async function updateSchool(schoolId: number, name: string, number: number) {
 
-  let url = `http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/schools/${schoolId}`;
+  const url = `${API_BASE_URL}schools/${schoolId}`;
 
   const accessToken = getAccssToken()
   if (!accessToken) {

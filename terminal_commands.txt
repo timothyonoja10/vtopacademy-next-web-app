@@ -2,3 +2,10 @@ npx create-next-app@latest
 npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
 npm init jest@latest
 npm run dev
+
+# set API_URL in .env.local file
+# remote
+API_URL=http://ec2-54-205-235-247.compute-1.amazonaws.com:3000/api/
+
+# local
+API_URL=http://localhost:8000/api/
